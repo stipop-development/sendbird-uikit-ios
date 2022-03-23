@@ -10,10 +10,14 @@ import UIKit
 import Photos
 import AVKit
 import SendBirdSDK
+import Stipop
 
 
 @objc
 public protocol SBUMessageInputViewDelegate: NSObjectProtocol {
+    @objc
+    optional func messageInputView(_ messageInputView: SBUMessageInputView, didSelectEmoticon url: String)
+    
     /// Called when the send button was selected.
     /// - Parameters:
     ///    - messageInputView: `SBUMessageinputView` object.
@@ -259,6 +263,14 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
         return view
     }()
     
+    lazy var stipopButton: SPUIButton = {
+        let view = SPUIButton()
+        let user = SPUser(userID: "dddd")
+        view.delegate = self
+        view.setUser(user, viewType: .picker)
+        return view
+    }()
+    
     /// SBUMessageInputView's leading / trailing padding view
     var leadingPaddingView = UIView()
     var trailingPaddingView = UIView()
@@ -458,6 +470,7 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
                             self.textViewLeadingPaddingView,
                             self.inputContentView,
                             self.textViewTrailingPaddingView,
+                            self.stipopButton,
                             self.sendButton,
                         ]),
                         self.editView,
@@ -880,5 +893,11 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
 extension SBUMessageInputView: SBUQuoteMessageInputViewDelegate {
     func didTapClose() {
         self.setMode(.none)
+    }
+}
+
+extension SBUMessageInputView: SPUIDelegate {
+    public func spViewDidSelectSticker(_ view: SPUIView, sticker: SPSticker) {
+        self.delegate?.messageInputView?(self, didSelectEmoticon: sticker.stickerImg)
     }
 }

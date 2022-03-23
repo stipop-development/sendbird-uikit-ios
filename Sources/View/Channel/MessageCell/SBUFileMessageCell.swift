@@ -58,34 +58,45 @@ open class SBUFileMessageCell: SBUContentBaseMessageCell {
         // Configure Content base message cell
         super.configure(with: configuration)
         
-        // Set up base file content view
-        switch SBUUtils.getFileType(by: message) {
-            case .image, .video:
-            if !(self.baseFileContentView is SBUImageContentView){
+        if message.customType == "stipop_sticker" {
+            if !(self.baseFileContentView is StickerContentView){
                 self.baseFileContentView.removeFromSuperview()
-                self.baseFileContentView = SBUImageContentView()
+                self.baseFileContentView = StickerContentView()
                 self.baseFileContentView.addGestureRecognizer(self.contentLongPressRecognizer)
                 self.baseFileContentView.addGestureRecognizer(self.contentTapRecognizer)
                 self.mainContainerView.insertArrangedSubview(self.baseFileContentView, at: 0)
             }
-            self.baseFileContentView.configure(
-                message: message,
-                position: configuration.messagePosition
-            )
-                
-            case .audio, .pdf, .etc:
-            if !(self.baseFileContentView is SBUCommonContentView) {
-                self.baseFileContentView.removeFromSuperview()
-                self.baseFileContentView = SBUCommonContentView()
-                self.baseFileContentView.addGestureRecognizer(self.contentLongPressRecognizer)
-                self.baseFileContentView.addGestureRecognizer(self.contentTapRecognizer)
-                self.mainContainerView.insertArrangedSubview(self.baseFileContentView, at: 0)
-            }
-            if let commonContentView = self.baseFileContentView as? SBUCommonContentView {
-                commonContentView.configure(
+            self.baseFileContentView.configure(message: message, position: position)
+        } else {
+            // Set up base file content view
+            switch SBUUtils.getFileType(by: message) {
+                case .image, .video:
+                if !(self.baseFileContentView is SBUImageContentView){
+                    self.baseFileContentView.removeFromSuperview()
+                    self.baseFileContentView = SBUImageContentView()
+                    self.baseFileContentView.addGestureRecognizer(self.contentLongPressRecognizer)
+                    self.baseFileContentView.addGestureRecognizer(self.contentTapRecognizer)
+                    self.mainContainerView.insertArrangedSubview(self.baseFileContentView, at: 0)
+                }
+                self.baseFileContentView.configure(
                     message: message,
-                    position: configuration.messagePosition,
-                    highlight: false)
+                    position: configuration.messagePosition
+                )
+                    
+                case .audio, .pdf, .etc:
+                if !(self.baseFileContentView is SBUCommonContentView) {
+                    self.baseFileContentView.removeFromSuperview()
+                    self.baseFileContentView = SBUCommonContentView()
+                    self.baseFileContentView.addGestureRecognizer(self.contentLongPressRecognizer)
+                    self.baseFileContentView.addGestureRecognizer(self.contentTapRecognizer)
+                    self.mainContainerView.insertArrangedSubview(self.baseFileContentView, at: 0)
+                }
+                if let commonContentView = self.baseFileContentView as? SBUCommonContentView {
+                    commonContentView.configure(
+                        message: message,
+                        position: configuration.messagePosition,
+                        highlight: false)
+                }
             }
         }
     }

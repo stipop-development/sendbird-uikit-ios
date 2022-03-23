@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stipop
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -30,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         SBUGlobals.ReplyTypeToUse = .quoteReply
         
         initializeRemoteNotification()
+        
+        Stipop.initialize()
         
         return true
     }

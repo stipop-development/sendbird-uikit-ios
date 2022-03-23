@@ -12,6 +12,7 @@ class SBUConstant {
     static let messageCellMaxWidth: CGFloat = 244
     static let thumbnailSize: CGSize = .init(width: 240, height: 160)
     static let imageSize: CGSize = .init(width: 240, height: 160)
+    static let stickerSize: CGSize = .init(width: 125, height: 125)
     static let quotedMessageThumbnailSize: CGSize = .init(width: 156, height: 104)
     
     static let openChannelThumbnailSize: CGSize = .init(width: 311, height: 207)

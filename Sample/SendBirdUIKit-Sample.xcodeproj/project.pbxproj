@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03BBFCC127E82FEA006B7670 /* Stipop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03BBFCC027E82FEA006B7670 /* Stipop.plist */; };
+		03BBFCC327E8327E006B7670 /* StickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BBFCC227E8327E006B7670 /* StickerContentView.swift */; };
 		2E79897A8FDCB52BA1911F21 /* libPods-SendBirdUIKit-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707286E9F4FB5E6C041CB07D /* libPods-SendBirdUIKit-Sample.a */; };
 		9C2AA7E325611A8200C6F6CB /* MainOpenChannelTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AA7E225611A8200C6F6CB /* MainOpenChannelTabbarController.swift */; };
 		9C2AA7E625611EB100C6F6CB /* MyOpenChannelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2AA7E525611EB100C6F6CB /* MyOpenChannelSettingsViewController.swift */; };
@@ -221,6 +223,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03BBFCC027E82FEA006B7670 /* Stipop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stipop.plist; sourceTree = "<group>"; };
+		03BBFCC227E8327E006B7670 /* StickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerContentView.swift; sourceTree = "<group>"; };
 		707286E9F4FB5E6C041CB07D /* libPods-SendBirdUIKit-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendBirdUIKit-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7421701286ECCC463A517183 /* Pods-SendBirdUIKit-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.debug.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		9C2AA7E225611A8200C6F6CB /* MainOpenChannelTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOpenChannelTabbarController.swift; sourceTree = "<group>"; };
@@ -589,6 +593,7 @@
 				9C777D63241B9024006FFE25 /* Assets.xcassets */,
 				9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */,
 				9C777D68241B9024006FFE25 /* Info.plist */,
+				03BBFCC027E82FEA006B7670 /* Stipop.plist */,
 			);
 			path = "SendBirdUIKit-Sample";
 			sourceTree = "<group>";
@@ -982,6 +987,7 @@
 				9CF8A90527D766D80023C95D /* ImageContentView.swift */,
 				9CF8A90627D766D80023C95D /* CommonContentView.swift */,
 				9CF8A90727D766D80023C95D /* OpenChannelImageContentView.swift */,
+				03BBFCC227E8327E006B7670 /* StickerContentView.swift */,
 			);
 			path = FileMessageContentView;
 			sourceTree = "<group>";
@@ -1310,6 +1316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF8A9AC27D766D90023C95D /* SBUReactionCollectionViewCell.xib in Resources */,
+				03BBFCC127E82FEA006B7670 /* Stipop.plist in Resources */,
 				9CF8A9E927D766D90023C95D /* SBUMenuCell.xib in Resources */,
 				9C777D67241B9024006FFE25 /* LaunchScreen.storyboard in Resources */,
 				9C777D64241B9024006FFE25 /* Assets.xcassets in Resources */,
@@ -1464,6 +1471,7 @@
 				9CF8A9D027D766D90023C95D /* SBUMessageStateView.swift in Sources */,
 				9CF8A9FD27D766D90023C95D /* SBUModerationCell.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
+				03BBFCC327E8327E006B7670 /* StickerContentView.swift in Sources */,
 				9CF8A9A627D766D90023C95D /* SBUUserProfileView.swift in Sources */,
 				9CF8A9F927D766D90023C95D /* SBUQuotedMessageViewProtocol.swift in Sources */,
 				9C32648124B37DD2000F8313 /* CustomUserMessageCell.swift in Sources */,

@@ -1718,6 +1718,15 @@ extension SBUBaseChannelViewController: UIDocumentPickerDelegate {
 // MARK: - SBUMessageInputViewDelegate
 extension SBUBaseChannelViewController: SBUMessageInputViewDelegate {
     open func messageInputView(_ messageInputView: SBUMessageInputView,
+                               didSelectEmoticon url: String) {
+        let params = SBDFileMessageParams(fileUrl: url)
+        if let params = params {
+            params.customType = "stipop_sticker"
+            sendFileMessage(messageParams: params)
+        }
+    }
+    
+    open func messageInputView(_ messageInputView: SBUMessageInputView,
                                didSelectSend text: String) {
         guard text.count > 0 else { return }
         
