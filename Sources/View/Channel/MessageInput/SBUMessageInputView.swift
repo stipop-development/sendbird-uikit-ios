@@ -264,7 +264,7 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
     }()
     
     lazy var stipopButton: SPUIButton = {
-        let view = SPUIButton()
+        let view = SPUIButton(type: .system)
         let user = SPUser(userID: "dddd")
         view.delegate = self
         view.setUser(user, viewType: .picker)
@@ -543,6 +543,9 @@ open class SBUMessageInputView: UIView, SBUActionSheetDelegate, UITextViewDelega
         
         // Subviews in InputHStackView
         self.addButton?
+            .setConstraint(width: 32, height: 38)
+        
+        self.stipopButton
             .setConstraint(width: 32, height: 38)
         
         // leading/trailing spacing for textview
